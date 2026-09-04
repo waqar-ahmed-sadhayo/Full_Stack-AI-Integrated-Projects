@@ -1,0 +1,31 @@
+# --- Python / backend ---
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+*.egg-info/
+
+# --- Node / frontend ---
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# --- Environment files (never commit real secrets) ---
+.env
+!.env.example
+
+# --- Generated runtime data (DEMO_MODE local store / simulated HDFS / uploads) ---
+data/local_store/
+data/hdfs_simulated/
+data/uploads/
+models/*.joblib
+reports/*
+
+# --- Editor / OS ---
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db

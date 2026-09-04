@@ -1,0 +1,143 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Plus Jakarta Sans", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --color-background: var(--c-background);
+  --color-surface: var(--c-surface);
+  --color-surface-2: var(--c-surface-2);
+  --color-sub-surface: var(--c-sub-surface);
+  --color-border: var(--c-border);
+  --color-border-strong: var(--c-border-strong);
+
+  --color-text: var(--c-text);
+  --color-text-muted: var(--c-text-muted);
+
+  --color-primary: var(--c-primary);
+  --color-primary-bright: var(--c-primary-bright);
+  --color-secondary: var(--c-secondary);
+  --color-secondary-bright: var(--c-secondary-bright);
+  --color-success: var(--c-success);
+  --color-warning: var(--c-warning);
+  --color-danger: var(--c-danger);
+  --color-danger-bright: var(--c-danger-bright);
+}
+
+:root {
+  --c-background: #0b1120;
+  --c-surface: #0d1322;
+  --c-surface-2: #0f172a;
+  --c-sub-surface: #1e1b4b;
+  --c-border: rgba(255, 255, 255, 0.08);
+  --c-border-strong: rgba(255, 255, 255, 0.16);
+
+  --c-text: #f8fafc;
+  --c-text-muted: #94a3b8;
+
+  --c-primary: #06b6d4;
+  --c-primary-bright: #4cd7f6;
+  --c-secondary: #14b8a6;
+  --c-secondary-bright: #4edea3;
+  --c-success: #10b981;
+  --c-warning: #f59e0b;
+  --c-danger: #f43f5e;
+  --c-danger-bright: #ef4444;
+
+  color-scheme: dark;
+}
+
+html.light {
+  --c-background: #f8fafc;
+  --c-surface: #ffffff;
+  --c-surface-2: #f1f5f9;
+  --c-sub-surface: #e2e8f0;
+  --c-border: rgba(15, 23, 42, 0.08);
+  --c-border-strong: rgba(15, 23, 42, 0.16);
+
+  --c-text: #0f172a;
+  --c-text-muted: #475569;
+
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  background: var(--c-background);
+  color: var(--c-text);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+.glass-card {
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid var(--c-border);
+  position: relative;
+}
+html.light .glass-card {
+  background: rgba(255, 255, 255, 0.75);
+}
+.glass-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.18) 50%, transparent);
+  pointer-events: none;
+}
+
+.telemetry-value {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.scroll-thin::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+.scroll-thin::-webkit-scrollbar-thumb {
+  background: var(--c-border-strong);
+  border-radius: 999px;
+}
+.scroll-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.map-tiles-dark {
+  filter: invert(1) hue-rotate(180deg) brightness(0.85) contrast(0.9) saturate(0.7);
+}
+html.light .map-tiles-dark {
+  filter: none;
+}
+.leaflet-container {
+  background: var(--c-surface) !important;
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+.animate-pulse-dot {
+  animation: pulse-dot 1.8s ease-in-out infinite;
+}
