@@ -44,9 +44,15 @@ app = FastAPI(
     openapi_url="/api/openapi.json",
 )
 
+# FRONTEND_URL may be a single origin or a comma-separated list (useful when the
+# frontend has both a production and preview deployment URL, e.g. on Vercel).
+_configured_origins = [o.strip() for o in settings.frontend_url.split(",") if o.strip()]
+_default_dev_origins = ["http://localhost:5173", "http://127.0.0.1:5173"]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[settings.frontend_url, "http://localhost:5173", "http://127.0.0.1:5173"],
+    allow_origins=list(dict.fromkeys(_configured_origins + _default_dev_origins)),
+    allow_origin_regex=r"https://.*\.vercel\.app",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
