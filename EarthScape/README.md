@@ -1,5 +1,11 @@
 # EarthScape — Climate Intelligence & Big Data Analytics Platform
 
+**Live demo:** [earthscape-nu.vercel.app](https://earthscape-nu.vercel.app) (frontend, Vercel) ·
+[earthscape-backend.onrender.com](https://earthscape-backend.onrender.com/api/docs) (API docs, Render)
+Login: `admin@earthscape.io` / `Admin@12345` or `analyst@earthscape.io` / `Analyst@12345`.
+> Render's free tier spins down after 15 min idle — the first request after a lull can take
+> ~30-60s to wake up and reseed the demo dataset.
+
 A full-stack Big Data climate analytics platform: ingestion → validation/cleaning → HDFS-style
 storage → MapReduce-style processing → analytics → ML prediction → anomaly detection →
 real-time monitoring → alerting → reporting, with role-based access for Administrators and

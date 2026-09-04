@@ -1,5 +1,9 @@
 # Deploying EarthScape (Render + Vercel)
 
+**Currently live:**
+- Frontend (Vercel): https://earthscape-nu.vercel.app
+- Backend (Render): https://earthscape-backend.onrender.com (`/api/docs` for Swagger)
+
 Backend → **Render** (Web Service), Frontend → **Vercel**. Both platforms support
 monorepos via a **Root Directory** setting, so no repo restructuring is needed.
 
